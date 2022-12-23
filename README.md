@@ -10,8 +10,7 @@ cd crowdfunding
 npm install
 ```
 
-## Basic hardhat command
-- Basic linting
+## Basic linting
 Solhint is a great linter that can detect syntax errors and also some syntax-related vulnerabilities.
 
 ```shell
