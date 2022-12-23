@@ -20,7 +20,6 @@ describe("Test V1", () => {
   it("There should be one campaign added", async () => {
     const [owner] = await ethers.getSigners();
 
-
     const addCampaign = await crowdFundingV1.createCampaign(
       owner.address,
       "Test title",

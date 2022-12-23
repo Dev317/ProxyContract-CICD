@@ -32,4 +32,5 @@ jobs:
         run : |
           npx hardhat clean
           npx hardhat --max-memory 2048 compile
-          npx hardhat test test/unit_test.js
+          npx hardhat test test/unit_test_v1.js
+          npx hardhat test test/unit_test_v2.js

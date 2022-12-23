@@ -1,0 +1,26 @@
+# name: CD workflow
+# on:
+#   push:
+#     branches: [ main ]
+
+# jobs:
+#   proxy_deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v3
+
+#       - name: Install node.js 16
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: 16
+
+#       - name: Install dependencies
+#         run: npm ci
+
+#       - name: Deploy proxy contract
+#         env:
+#           GOERLI_URL: ${{ secrets.GOERLI_URL }}
+#           GOERLI_PRIVATE_KEY: ${{ secrets.GOERLI_PRIVATE_KEY }}
+#           ETHERSCAN_API_KEY: ${{ secrets.ETHERSCAN_API_KEY }}
+#         run:
+#           npm run deploy
