@@ -75,6 +75,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Pull new changes
+        run: git pull origin main --rebase
+
       - name: Install node.js 16
         uses: actions/setup-node@v3
         with:
@@ -91,9 +94,6 @@ jobs:
         run: |
           npx hardhat run scripts/upgrade.js --network goerli
           export $(xargs < output.txt)
-
-      - name: Pull new changes
-        run: git pull origin main
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
