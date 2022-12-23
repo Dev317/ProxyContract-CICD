@@ -14,7 +14,7 @@ To verify that `CrowdFundingV1` has been upgraded to `CrowdFundingV2`, we will b
 
 This project will also demonstrate CI/CD workflow where new contract will be deployed when new codes are pushed and are managed to pass all the given testcases.
 
-:warning: **Remember to comment out proxy_deploy** after you have already deployed the proxy contract! Else, new proxy contract will be created and the upgrading cycle will be repeated
+:warning: **Remember to comment out proxy_deploy** after you have already deployed the proxy contract! Else, new proxy contract will be created and the upgrading cycle will be repeated.
 
 ## Installing dependencies
 
