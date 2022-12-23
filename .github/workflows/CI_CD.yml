@@ -58,6 +58,7 @@ jobs:
           npm run deploy
           export $(xargs < output.txt)
           npx hardhat verify --network goerli $IMPLEMENTATION_ADDRESS
+          exit 0
 
   upgrade_deploy:
     runs-on: ubuntu-latest
@@ -82,3 +83,4 @@ jobs:
           npm run uprade
           export $(xargs < output.txt)
           npx hardhat verify --network goerli $IMPLEMENTATION_ADDRESS
+          exit 0
