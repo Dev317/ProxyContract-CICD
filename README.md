@@ -9,6 +9,7 @@ In this project, we will create 2 smart contracts `CrowdFundingV1.sol` and `Crow
 3. **ProxyAdmin contract** which links the Proxy and Implementation
 
 ![alt tag](https://trufflesuite.com/img/blog/a-sweet-upgradeable-contract-experience-with-openzeppelin-and-truffle/proxy-contract.png)
+(*Source: Truffle Suite*)
 
 To verify that `CrowdFundingV1` has been upgraded to `CrowdFundingV2`, we will be written small test cases that will check regardless of what data is posted to the Proxy contract to `CrowdFundingV1`, that data will still be present when the contract is upgraded to `CrowdFundingV2`.
 
