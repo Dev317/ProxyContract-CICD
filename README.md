@@ -2,6 +2,20 @@
 
 This project demonstrates a basic lifecycle of a smart contract development, which consists of versioning, testing and deploying of any newly created contracts.
 
+## Overview
+In this project, we will create 2 smart contracts `CrowdFundingV1.sol` and `CrowFundingV2.sol` to demonstrate the Proxy pattern that allows the upgrading of smart contracts. We will be using OpenZepplin's implementation of proxy contract, which consists of :
+1. **Proxy contract** which stores all the state that users interact with. It will also delegate call to the Implementation contract which will execute the required logic.
+2. **Implementation contract** which is basically `CrowdFundingV1.sol` and `CrowFundingV2.sol` but no actual data is going to be stored on them. Instead, it is used to execute the function which is called from the Proxy contract.
+3. **ProxyAdmin contract** which links the Proxy and Implementation
+
+![alt text](https://www.google.com/url?sa=i&url=https%3A%2F%2Ftrufflesuite.com%2Fblog%2Fa-sweet-upgradeable-contract-experience-with-openzeppelin-and-truffle%2F&psig=AOvVaw2HhZaWzNT2mssVYkv4YGPB&ust=1671917656082000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCPCu0OHYkPwCFQAAAAAdAAAAABAR)
+
+To verify that `CrowdFundingV1` has been upgraded to `CrowdFundingV2`, we will be written small test cases that will check regardless of what data is posted to the Proxy contract to `CrowdFundingV1`, that data will still be present when the contract is upgraded to `CrowdFundingV2`.
+
+This project will also demonstrate CI/CD workflow where new contract will be deployed when new codes are pushed and are managed to pass all the given testcases.
+
+
+
 ## Installing dependencies
 
 ```shell
@@ -37,3 +51,8 @@ npx hardhat test test/${test_file_name.js}
 ```shell
 npx hardhat deploy scripts/${deploy_file_name.js} --network ${network_name}
 ```
+
+## References
+- https://www.chainshot.com/article/how-to-make-contracts-upgradeable
+- https://dev.to/yakult/tutorial-write-upgradeable-smart-contract-proxy-contract-with-openzeppelin-1916
+- https://docs.openzeppelin.com/upgrades-plugins/1.x/

@@ -2,6 +2,8 @@ name: CI/CD workflow
 on:
   push:
     branches: [ main ]
+    paths-ignore:
+      - '**/README.md'
 
 jobs:
   unit_test:
@@ -85,6 +87,9 @@ jobs:
         run: |
           npx hardhat run scripts/upgrade.js --network goerli
           export $(xargs < output.txt)
+
+      - name: Pull new changes
+        run: git pull origin main
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
