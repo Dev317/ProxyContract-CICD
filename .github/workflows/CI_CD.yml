@@ -60,6 +60,10 @@ jobs:
           npx hardhat verify --network goerli $IMPLEMENTATION_ADDRESS
         continue-on-error: true
 
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Saved text.file
+
 
   upgrade_deploy:
     runs-on: ubuntu-latest
@@ -81,7 +85,11 @@ jobs:
           GOERLI_PRIVATE_KEY: ${{ secrets.GOERLI_PRIVATE_KEY }}
           ETHERSCAN_API_KEY: ${{ secrets.ETHERSCAN_API_KEY }}
         run: |
-          npm run uprade
+          npm run upgrade
           export $(xargs < output.txt)
           npx hardhat verify --network goerli $IMPLEMENTATION_ADDRESS
         continue-on-error: true
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Saved text.file
