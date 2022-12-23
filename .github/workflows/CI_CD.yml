@@ -62,7 +62,7 @@ jobs:
 
   upgrade_deploy:
     runs-on: ubuntu-latest
-    needs: upgrade_deploy
+    needs: proxy_deploy
     steps:
       - uses: actions/checkout@v3
 
