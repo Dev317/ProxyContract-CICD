@@ -1,9 +1,40 @@
-name: CD workflow
+name: CI workflow
 on:
   push:
     branches: [ main ]
 
 jobs:
+  unit_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install node.js 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linter
+        run : |
+          npm install -g solhint
+          solhint --version
+          solhint --init
+          solhint contracts/**/*.sol
+
+      - name: Run unit test cases
+        env:
+          GOERLI_URL: ${{ secrets.GOERLI_URL }}
+          GOERLI_PRIVATE_KEY: ${{ secrets.GOERLI_PRIVATE_KEY }}
+          ETHERSCAN_API_KEY: ${{ secrets.ETHERSCAN_API_KEY }}
+        run : |
+          npx hardhat clean
+          npx hardhat --max-memory 2048 compile
+          npx hardhat test test/unit_test_v1.js
+          npx hardhat test test/unit_test_v2.js
+
   proxy_deploy:
     runs-on: ubuntu-latest
     steps:
