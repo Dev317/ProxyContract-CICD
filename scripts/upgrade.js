@@ -5,13 +5,12 @@ const fs = require('fs');
 const envfile = require('envfile');
 const sourcePath = './output.txt';
 
-
 const content = fs.readFileSync(sourcePath);
 const lines = content.toString().split('\n');
 
 const key_pair = {};
 
-for(let line = 0; line < lines.length; line++){
+for (let line = 0; line < lines.length; line++) {
   const currentline = lines[line].split('=');
   key_pair[currentline[0]] = currentline[1];
 }
