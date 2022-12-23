@@ -8,7 +8,7 @@ In this project, we will create 2 smart contracts `CrowdFundingV1.sol` and `Crow
 2. **Implementation contract** which is basically `CrowdFundingV1.sol` and `CrowFundingV2.sol` but no actual data is going to be stored on them. Instead, it is used to execute the function which is called from the Proxy contract.
 3. **ProxyAdmin contract** which links the Proxy and Implementation
 
-![alt text](https://www.google.com/url?sa=i&url=https%3A%2F%2Ftrufflesuite.com%2Fblog%2Fa-sweet-upgradeable-contract-experience-with-openzeppelin-and-truffle%2F&psig=AOvVaw2HhZaWzNT2mssVYkv4YGPB&ust=1671917656082000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCPCu0OHYkPwCFQAAAAAdAAAAABAR)
+![alt tag](https://trufflesuite.com/img/blog/a-sweet-upgradeable-contract-experience-with-openzeppelin-and-truffle/proxy-contract.png)
 
 To verify that `CrowdFundingV1` has been upgraded to `CrowdFundingV2`, we will be written small test cases that will check regardless of what data is posted to the Proxy contract to `CrowdFundingV1`, that data will still be present when the contract is upgraded to `CrowdFundingV2`.
 
