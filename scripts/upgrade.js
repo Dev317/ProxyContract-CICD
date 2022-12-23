@@ -3,9 +3,7 @@ const { ethers, upgrades } = require("hardhat");
 require("dotenv").config();
 const fs = require('fs');
 const envfile = require('envfile');
-const { assert } = require("console");
 const sourcePath = './output.txt';
-const assert = require('assert');
 
 const getKeyPair = () => {
   const content = fs.readFileSync(sourcePath);
