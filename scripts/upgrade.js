@@ -16,9 +16,15 @@ for (let line = 0; line < lines.length; line++) {
 }
 
 const proxyAddress = key_pair["PROXY_ADDRESS"];
+const oldImplAddress = key_pair["IMPLEMENTATION_ADDRESS"];
 
 async function main() {
+  console.log(proxyAddress,"-Proxy address")
+  console.log(oldImplAddress,"-Old Impl address")
+
   const CrowdFundingV2 = await ethers.getContractFactory("CrowdFundingV2");
+  console.log("Upgrade to CrowdFundingV2...");
+
   const crowdFundingV2 = await upgrades.upgradeProxy(proxyAddress, CrowdFundingV2);
 
   console.log(crowdFundingV2.address, "-ProxyAddress");
