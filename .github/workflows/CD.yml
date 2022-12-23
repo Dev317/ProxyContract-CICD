@@ -22,7 +22,7 @@ jobs:
           GOERLI_URL: ${{ secrets.GOERLI_URL }}
           GOERLI_PRIVATE_KEY: ${{ secrets.GOERLI_PRIVATE_KEY }}
           ETHERSCAN_API_KEY: ${{ secrets.ETHERSCAN_API_KEY }}
-        run:
+        run: |
           npm run deploy
           export $(xargs < output.txt)
           npx hardhat verify --network goerli $IMPLEMENTATION_ADDRESS
@@ -45,7 +45,7 @@ jobs:
           GOERLI_URL: ${{ secrets.GOERLI_URL }}
           GOERLI_PRIVATE_KEY: ${{ secrets.GOERLI_PRIVATE_KEY }}
           ETHERSCAN_API_KEY: ${{ secrets.ETHERSCAN_API_KEY }}
-        run:
+        run: |
           npm run uprade
           export $(xargs < output.txt)
           npx hardhat verify --network goerli $IMPLEMENTATION_ADDRESS
