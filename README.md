@@ -11,6 +11,15 @@ npm install
 ```
 
 ## Basic hardhat command
+- Basic linting
+Solhint is a great linter that can detect syntax errors and also some syntax-related vulnerabilities.
+
+```shell
+solhint init-config
+solhint **/*.sol
+```
+
+## Basic hardhat command
 - Compile smart contract
 
 ```shell
