@@ -14,7 +14,8 @@ npm install
 Solhint is a great linter that can detect syntax errors and also some syntax-related vulnerabilities.
 
 ```shell
-solhint init-config
+solhint --version
+solhint --init
 solhint **/*.sol
 ```
 
