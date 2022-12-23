@@ -1,0 +1,23 @@
+name: CI workflow
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+  
+    - name: Install node.js 16
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - run: npm ci
+    
+    - name: Run unit test
+    - run : |
+        npx hardhat clean
+        npx hardhat --max-memory 2048 compile
+        npm run test unit_test.js
