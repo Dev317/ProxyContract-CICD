@@ -17,7 +17,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run unit test
+      - name: Run linter
+        run : npm run lint
+
+      - name: Run unit test cases
         env:
           GOERLI_URL: ${{ secrets.GOERLI_URL }}
           GOERLI_PRIVATE_KEY: ${{ secrets.GOERLI_PRIVATE_KEY }}
@@ -25,4 +28,4 @@ jobs:
         run : |
           npx hardhat clean
           npx hardhat --max-memory 2048 compile
-          npm hardhat test unit_test.js
+          npx hardhat test unit_test.js
